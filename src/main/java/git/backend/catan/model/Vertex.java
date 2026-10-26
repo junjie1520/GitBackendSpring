@@ -3,7 +3,11 @@ package git.backend.catan.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 import org.hibernate.annotations.DynamicInsert;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -33,10 +37,12 @@ public class Vertex {
 	private Integer codi;
 	
 	@OneToMany(mappedBy = "vertex", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonIgnore
 	private List<HexagonVertex> hexagonVertices = new ArrayList<>();
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "partida_vertex_id", nullable = false)
+	@JsonIgnore
 	private Partida partida;
 
 	public Vertex() {}
