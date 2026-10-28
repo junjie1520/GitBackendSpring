@@ -1,5 +1,7 @@
 package git.backend.catan.controller;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +26,7 @@ public class PartidaController {
 		return service.tauler(idPartida);
 	}
 	@PostMapping
-	public ResponseEntity<?> inicialitzarPartida(@Valid @RequestBody PartidaPeticio peticio) {
+	public ResponseEntity<?> inicialitzarPartida(@Valid @RequestBody PartidaPeticio peticio) throws IOException {
 		return service.inicialitzarPartida(peticio);
 	}
 

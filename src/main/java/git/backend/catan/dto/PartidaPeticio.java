@@ -12,5 +12,5 @@ public record PartidaPeticio(
 	List<String> nomJugadors,
 	
 	@Min(value = 1, message = "Els punts per guanyar han de ser com a mínim 1")
-	Integer puntsPerrGuanyar) {
+	Integer puntsPerGuanyar) {
 }
