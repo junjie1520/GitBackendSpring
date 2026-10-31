@@ -24,4 +24,5 @@ public interface VertexRepository extends JpaRepository<Vertex, Integer> {
             @Param("jugadorId") Integer jugadorId, 
             @Param("esPreparacio") boolean esPreparacio);
 
+
 }

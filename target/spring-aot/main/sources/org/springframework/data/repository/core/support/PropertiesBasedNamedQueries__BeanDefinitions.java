@@ -20,4 +20,81 @@ public class PropertiesBasedNamedQueries__BeanDefinitions {
     beanDefinition.setInstanceSupplier(PropertiesBasedNamedQueriesFactoryBean::new);
     return beanDefinition;
   }
+
+  /**
+   * Get the bean definition for 'named-queries#1'.
+   */
+  public static BeanDefinition getNamedqueriesBeanDefinition1() {
+    RootBeanDefinition beanDefinition = new RootBeanDefinition(PropertiesBasedNamedQueriesFactoryBean.class);
+    beanDefinition.getPropertyValues().addPropertyValue("locations", "classpath*:META-INF/jpa-named-queries.properties");
+    beanDefinition.getPropertyValues().addPropertyValue("ignoreResourceNotFound", true);
+    beanDefinition.setInstanceSupplier(PropertiesBasedNamedQueriesFactoryBean::new);
+    return beanDefinition;
+  }
+
+  /**
+   * Get the bean definition for 'named-queries#2'.
+   */
+  public static BeanDefinition getNamedqueriesBeanDefinition2() {
+    RootBeanDefinition beanDefinition = new RootBeanDefinition(PropertiesBasedNamedQueriesFactoryBean.class);
+    beanDefinition.getPropertyValues().addPropertyValue("locations", "classpath*:META-INF/jpa-named-queries.properties");
+    beanDefinition.getPropertyValues().addPropertyValue("ignoreResourceNotFound", true);
+    beanDefinition.setInstanceSupplier(PropertiesBasedNamedQueriesFactoryBean::new);
+    return beanDefinition;
+  }
+
+  /**
+   * Get the bean definition for 'named-queries#3'.
+   */
+  public static BeanDefinition getNamedqueriesBeanDefinition3() {
+    RootBeanDefinition beanDefinition = new RootBeanDefinition(PropertiesBasedNamedQueriesFactoryBean.class);
+    beanDefinition.getPropertyValues().addPropertyValue("locations", "classpath*:META-INF/jpa-named-queries.properties");
+    beanDefinition.getPropertyValues().addPropertyValue("ignoreResourceNotFound", true);
+    beanDefinition.setInstanceSupplier(PropertiesBasedNamedQueriesFactoryBean::new);
+    return beanDefinition;
+  }
+
+  /**
+   * Get the bean definition for 'named-queries#4'.
+   */
+  public static BeanDefinition getNamedqueriesBeanDefinition4() {
+    RootBeanDefinition beanDefinition = new RootBeanDefinition(PropertiesBasedNamedQueriesFactoryBean.class);
+    beanDefinition.getPropertyValues().addPropertyValue("locations", "classpath*:META-INF/jpa-named-queries.properties");
+    beanDefinition.getPropertyValues().addPropertyValue("ignoreResourceNotFound", true);
+    beanDefinition.setInstanceSupplier(PropertiesBasedNamedQueriesFactoryBean::new);
+    return beanDefinition;
+  }
+
+  /**
+   * Get the bean definition for 'named-queries#5'.
+   */
+  public static BeanDefinition getNamedqueriesBeanDefinition5() {
+    RootBeanDefinition beanDefinition = new RootBeanDefinition(PropertiesBasedNamedQueriesFactoryBean.class);
+    beanDefinition.getPropertyValues().addPropertyValue("locations", "classpath*:META-INF/jpa-named-queries.properties");
+    beanDefinition.getPropertyValues().addPropertyValue("ignoreResourceNotFound", true);
+    beanDefinition.setInstanceSupplier(PropertiesBasedNamedQueriesFactoryBean::new);
+    return beanDefinition;
+  }
+
+  /**
+   * Get the bean definition for 'named-queries#6'.
+   */
+  public static BeanDefinition getNamedqueriesBeanDefinition6() {
+    RootBeanDefinition beanDefinition = new RootBeanDefinition(PropertiesBasedNamedQueriesFactoryBean.class);
+    beanDefinition.getPropertyValues().addPropertyValue("locations", "classpath*:META-INF/jpa-named-queries.properties");
+    beanDefinition.getPropertyValues().addPropertyValue("ignoreResourceNotFound", true);
+    beanDefinition.setInstanceSupplier(PropertiesBasedNamedQueriesFactoryBean::new);
+    return beanDefinition;
+  }
+
+  /**
+   * Get the bean definition for 'named-queries#7'.
+   */
+  public static BeanDefinition getNamedqueriesBeanDefinition7() {
+    RootBeanDefinition beanDefinition = new RootBeanDefinition(PropertiesBasedNamedQueriesFactoryBean.class);
+    beanDefinition.getPropertyValues().addPropertyValue("locations", "classpath*:META-INF/jpa-named-queries.properties");
+    beanDefinition.getPropertyValues().addPropertyValue("ignoreResourceNotFound", true);
+    beanDefinition.setInstanceSupplier(PropertiesBasedNamedQueriesFactoryBean::new);
+    return beanDefinition;
+  }
 }

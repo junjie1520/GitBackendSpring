@@ -17,4 +17,7 @@ public interface HexagonRepository extends JpaRepository<Hexagon, Integer>{
 			ORDER BY h.codi, hv.posicio
 			""")
 	List<Hexagon> llistarTauler(@Param("idPartida") Integer idPartida);
+	
+	@Query("SELECT hv.hexagon FROM HexagonVertex hv WHERE hv.vertex.id = :idV AND hv.hexagon.terreny != 'DESERT'")
+    List<Hexagon> findHexagonsProductiusPerVertex(@Param("idV") Integer idVertex);
 }

@@ -4,13 +4,6 @@
   "type": "IMPERATIVE",
   "methods": [
     {
-      "name": "findTauler",
-      "signature": "public abstract java.util.List<java.lang.Object[]> git.backend.catan.repository.PartidaRepository.findTauler(java.lang.Integer)",
-      "query": {
-        "query": "select h, hv.posicio, a, j from Hexagon h left join h.hexagonVertices hv left join Assentament a on a.vertex = hv.vertex left join a.propietari j where h.partida.id = :idPartida order by h.codi, hv.posicio"
-      }
-    },
-    {
       "name": "deleteAllByIdInBatch",
       "signature": "org.springframework.data.jpa.repository.support.SimpleJpaRepository",
       "fragment": {

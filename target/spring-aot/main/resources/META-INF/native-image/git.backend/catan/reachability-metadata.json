@@ -598,6 +598,67 @@
       ]
     },
     {
+      "type": "git.backend.catan.controller.JugadorController",
+      "fields": [
+        {
+          "name": "service"
+        }
+      ],
+      "methods": [
+        {
+          "name": "construir",
+          "parameterTypes": [
+            "int",
+            "java.lang.String",
+            "int"
+          ]
+        },
+        {
+          "name": "passarTorn",
+          "parameterTypes": [
+            "int"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "git.backend.catan.controller.PartidaController",
+      "fields": [
+        {
+          "name": "service"
+        }
+      ],
+      "methods": [
+        {
+          "name": "inicialitzarPartida",
+          "parameterTypes": [
+            "git.backend.catan.dto.PartidaPeticio"
+          ]
+        },
+        {
+          "name": "tauler",
+          "parameterTypes": [
+            "int"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "git.backend.catan.dto.PartidaPeticio",
+      "allDeclaredFields": true,
+      "allDeclaredConstructors": true,
+      "methods": [
+        {
+          "name": "nomJugadors",
+          "parameterTypes": [ ]
+        },
+        {
+          "name": "puntsPerGuanyar",
+          "parameterTypes": [ ]
+        }
+      ]
+    },
+    {
       "type": "git.backend.catan.model.Aresta",
       "allDeclaredFields": true,
       "allDeclaredConstructors": true,
@@ -659,14 +720,6 @@
       ]
     },
     {
-      "type": "git.backend.catan.model.Aresta__Accessor_7z9zte",
-      "allDeclaredConstructors": true
-    },
-    {
-      "type": "git.backend.catan.model.Aresta__Instantiator_7z9zte",
-      "allDeclaredConstructors": true
-    },
-    {
       "type": "git.backend.catan.model.Assentament",
       "allDeclaredFields": true,
       "allDeclaredConstructors": true,
@@ -684,10 +737,6 @@
       ]
     },
     {
-      "type": "git.backend.catan.model.Assentament__Accessor_133pkf",
-      "allDeclaredConstructors": true
-    },
-    {
       "type": "git.backend.catan.model.Carretera",
       "allDeclaredFields": true,
       "allDeclaredConstructors": true,
@@ -703,14 +752,6 @@
           ]
         }
       ]
-    },
-    {
-      "type": "git.backend.catan.model.Carretera__Accessor_epxzxb",
-      "allDeclaredConstructors": true
-    },
-    {
-      "type": "git.backend.catan.model.Carretera__Instantiator_epxzxb",
-      "allDeclaredConstructors": true
     },
     {
       "type": "git.backend.catan.model.CartaDesenvolupament",
@@ -774,24 +815,8 @@
       ]
     },
     {
-      "type": "git.backend.catan.model.CartaDesenvolupament__Accessor_2nwdu9",
-      "allDeclaredConstructors": true
-    },
-    {
-      "type": "git.backend.catan.model.CartaDesenvolupament__Instantiator_2nwdu9",
-      "allDeclaredConstructors": true
-    },
-    {
       "type": "git.backend.catan.model.Ciutat",
       "allDeclaredFields": true,
-      "allDeclaredConstructors": true
-    },
-    {
-      "type": "git.backend.catan.model.Ciutat__Accessor_8spbcu",
-      "allDeclaredConstructors": true
-    },
-    {
-      "type": "git.backend.catan.model.Ciutat__Instantiator_8spbcu",
       "allDeclaredConstructors": true
     },
     {
@@ -829,10 +854,6 @@
           ]
         }
       ]
-    },
-    {
-      "type": "git.backend.catan.model.Construccio__Accessor_qsvzl2",
-      "allDeclaredConstructors": true
     },
     {
       "type": "git.backend.catan.model.EstatPartida",
@@ -936,14 +957,6 @@
       ]
     },
     {
-      "type": "git.backend.catan.model.Hexagon__Accessor_awn6ue",
-      "allDeclaredConstructors": true
-    },
-    {
-      "type": "git.backend.catan.model.Hexagon__Instantiator_awn6ue",
-      "allDeclaredConstructors": true
-    },
-    {
       "type": "git.backend.catan.model.HexagonVertex",
       "allDeclaredFields": true,
       "allDeclaredConstructors": true,
@@ -983,14 +996,6 @@
           ]
         }
       ]
-    },
-    {
-      "type": "git.backend.catan.model.HexagonVertex__Accessor_nz6mse",
-      "allDeclaredConstructors": true
-    },
-    {
-      "type": "git.backend.catan.model.HexagonVertex__Instantiator_nz6mse",
-      "allDeclaredConstructors": true
     },
     {
       "type": "git.backend.catan.model.Jugador",
@@ -1082,14 +1087,6 @@
           ]
         }
       ]
-    },
-    {
-      "type": "git.backend.catan.model.Jugador__Accessor_prirlo",
-      "allDeclaredConstructors": true
-    },
-    {
-      "type": "git.backend.catan.model.Jugador__Instantiator_prirlo",
-      "allDeclaredConstructors": true
     },
     {
       "type": "git.backend.catan.model.Partida",
@@ -1253,24 +1250,8 @@
       ]
     },
     {
-      "type": "git.backend.catan.model.Partida__Accessor_xi9xsd",
-      "allDeclaredConstructors": true
-    },
-    {
-      "type": "git.backend.catan.model.Partida__Instantiator_xi9xsd",
-      "allDeclaredConstructors": true
-    },
-    {
       "type": "git.backend.catan.model.Poblat",
       "allDeclaredFields": true,
-      "allDeclaredConstructors": true
-    },
-    {
-      "type": "git.backend.catan.model.Poblat__Accessor_f18vcy",
-      "allDeclaredConstructors": true
-    },
-    {
-      "type": "git.backend.catan.model.Poblat__Instantiator_f18vcy",
       "allDeclaredConstructors": true
     },
     {
@@ -1313,14 +1294,6 @@
           ]
         }
       ]
-    },
-    {
-      "type": "git.backend.catan.model.RecursJugador__Accessor_kew4qe",
-      "allDeclaredConstructors": true
-    },
-    {
-      "type": "git.backend.catan.model.RecursJugador__Instantiator_kew4qe",
-      "allDeclaredConstructors": true
     },
     {
       "type": "git.backend.catan.model.TipusCarta",
@@ -1417,12 +1390,49 @@
       ]
     },
     {
-      "type": "git.backend.catan.model.Vertex__Accessor_hqb1m2",
-      "allDeclaredConstructors": true
+      "type": "git.backend.catan.repository.ArestaRepository",
+      "allPublicMethods": true
     },
     {
-      "type": "git.backend.catan.model.Vertex__Instantiator_hqb1m2",
-      "allDeclaredConstructors": true
+      "type": "git.backend.catan.repository.ArestaRepositoryImpl__AotRepository",
+      "allDeclaredConstructors": true,
+      "allPublicMethods": true
+    },
+    {
+      "type": "git.backend.catan.repository.AssentamentRepository",
+      "allPublicMethods": true
+    },
+    {
+      "type": "git.backend.catan.repository.AssentamentRepositoryImpl__AotRepository",
+      "allDeclaredConstructors": true,
+      "allPublicMethods": true
+    },
+    {
+      "type": "git.backend.catan.repository.CarreteraRepository",
+      "allPublicMethods": true
+    },
+    {
+      "type": "git.backend.catan.repository.CarreteraRepositoryImpl__AotRepository",
+      "allDeclaredConstructors": true,
+      "allPublicMethods": true
+    },
+    {
+      "type": "git.backend.catan.repository.HexagonRepository",
+      "allPublicMethods": true
+    },
+    {
+      "type": "git.backend.catan.repository.HexagonRepositoryImpl__AotRepository",
+      "allDeclaredConstructors": true,
+      "allPublicMethods": true
+    },
+    {
+      "type": "git.backend.catan.repository.JugadorRepository",
+      "allPublicMethods": true
+    },
+    {
+      "type": "git.backend.catan.repository.JugadorRepositoryImpl__AotRepository",
+      "allDeclaredConstructors": true,
+      "allPublicMethods": true
     },
     {
       "type": "git.backend.catan.repository.PartidaRepository",
@@ -1432,6 +1442,116 @@
       "type": "git.backend.catan.repository.PartidaRepositoryImpl__AotRepository",
       "allDeclaredConstructors": true,
       "allPublicMethods": true
+    },
+    {
+      "type": "git.backend.catan.repository.PoblatRepository",
+      "allPublicMethods": true
+    },
+    {
+      "type": "git.backend.catan.repository.PoblatRepositoryImpl__AotRepository",
+      "allDeclaredConstructors": true,
+      "allPublicMethods": true
+    },
+    {
+      "type": "git.backend.catan.repository.VertexRepository",
+      "allPublicMethods": true
+    },
+    {
+      "type": "git.backend.catan.repository.VertexRepositoryImpl__AotRepository",
+      "allDeclaredConstructors": true,
+      "allPublicMethods": true
+    },
+    {
+      "type": "git.backend.catan.service.JugadorService",
+      "allPublicMethods": true,
+      "allDeclaredMethods": true,
+      "fields": [
+        {
+          "name": "arestaRepository"
+        },
+        {
+          "name": "assentamentRepository"
+        },
+        {
+          "name": "carreteraRepository"
+        },
+        {
+          "name": "jugadorRepository"
+        },
+        {
+          "name": "partidaRepository"
+        },
+        {
+          "name": "poblatRepository"
+        },
+        {
+          "name": "vertexRepository"
+        }
+      ],
+      "methods": [
+        {
+          "name": "construir",
+          "parameterTypes": [
+            "int",
+            "java.lang.String",
+            "int"
+          ]
+        },
+        {
+          "name": "passarTorn",
+          "parameterTypes": [
+            "int"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "git.backend.catan.service.JugadorService$$SpringCGLIB$$0",
+      "allDeclaredFields": true,
+      "allDeclaredConstructors": true,
+      "allDeclaredMethods": true
+    },
+    {
+      "type": "git.backend.catan.service.PartidaService",
+      "allPublicMethods": true,
+      "allDeclaredMethods": true,
+      "fields": [
+        {
+          "name": "aRepository"
+        },
+        {
+          "name": "arRepository"
+        },
+        {
+          "name": "hRepository"
+        },
+        {
+          "name": "pRepository"
+        },
+        {
+          "name": "vRepository"
+        }
+      ],
+      "methods": [
+        {
+          "name": "inicialitzarPartida",
+          "parameterTypes": [
+            "git.backend.catan.dto.PartidaPeticio"
+          ]
+        },
+        {
+          "name": "tauler",
+          "parameterTypes": [
+            "int"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "git.backend.catan.service.PartidaService$$SpringCGLIB$$0",
+      "allDeclaredFields": true,
+      "allDeclaredConstructors": true,
+      "allDeclaredMethods": true
     },
     {
       "type": "io.swagger.v3.core.converter.ModelConverter",
@@ -12809,6 +12929,171 @@
     {
       "type": {
         "proxy": [
+          "git.backend.catan.repository.ArestaRepository",
+          "org.springframework.aop.SpringProxy",
+          "org.springframework.aop.framework.Advised",
+          "org.springframework.core.DecoratingProxy"
+        ]
+      }
+    },
+    {
+      "type": {
+        "proxy": [
+          "git.backend.catan.repository.ArestaRepository",
+          "org.springframework.data.repository.Repository",
+          "org.springframework.transaction.interceptor.TransactionalProxy",
+          "org.springframework.aop.framework.Advised",
+          "org.springframework.core.DecoratingProxy"
+        ]
+      }
+    },
+    {
+      "type": {
+        "proxy": [
+          "git.backend.catan.repository.ArestaRepository",
+          "org.springframework.data.repository.Repository",
+          "org.springframework.transaction.interceptor.TransactionalProxy",
+          "org.springframework.aop.framework.Advised",
+          "org.springframework.core.DecoratingProxy",
+          "java.io.Serializable"
+        ]
+      }
+    },
+    {
+      "type": {
+        "proxy": [
+          "git.backend.catan.repository.AssentamentRepository",
+          "org.springframework.aop.SpringProxy",
+          "org.springframework.aop.framework.Advised",
+          "org.springframework.core.DecoratingProxy"
+        ]
+      }
+    },
+    {
+      "type": {
+        "proxy": [
+          "git.backend.catan.repository.AssentamentRepository",
+          "org.springframework.data.repository.Repository",
+          "org.springframework.transaction.interceptor.TransactionalProxy",
+          "org.springframework.aop.framework.Advised",
+          "org.springframework.core.DecoratingProxy"
+        ]
+      }
+    },
+    {
+      "type": {
+        "proxy": [
+          "git.backend.catan.repository.AssentamentRepository",
+          "org.springframework.data.repository.Repository",
+          "org.springframework.transaction.interceptor.TransactionalProxy",
+          "org.springframework.aop.framework.Advised",
+          "org.springframework.core.DecoratingProxy",
+          "java.io.Serializable"
+        ]
+      }
+    },
+    {
+      "type": {
+        "proxy": [
+          "git.backend.catan.repository.CarreteraRepository",
+          "org.springframework.aop.SpringProxy",
+          "org.springframework.aop.framework.Advised",
+          "org.springframework.core.DecoratingProxy"
+        ]
+      }
+    },
+    {
+      "type": {
+        "proxy": [
+          "git.backend.catan.repository.CarreteraRepository",
+          "org.springframework.data.repository.Repository",
+          "org.springframework.transaction.interceptor.TransactionalProxy",
+          "org.springframework.aop.framework.Advised",
+          "org.springframework.core.DecoratingProxy"
+        ]
+      }
+    },
+    {
+      "type": {
+        "proxy": [
+          "git.backend.catan.repository.CarreteraRepository",
+          "org.springframework.data.repository.Repository",
+          "org.springframework.transaction.interceptor.TransactionalProxy",
+          "org.springframework.aop.framework.Advised",
+          "org.springframework.core.DecoratingProxy",
+          "java.io.Serializable"
+        ]
+      }
+    },
+    {
+      "type": {
+        "proxy": [
+          "git.backend.catan.repository.HexagonRepository",
+          "org.springframework.aop.SpringProxy",
+          "org.springframework.aop.framework.Advised",
+          "org.springframework.core.DecoratingProxy"
+        ]
+      }
+    },
+    {
+      "type": {
+        "proxy": [
+          "git.backend.catan.repository.HexagonRepository",
+          "org.springframework.data.repository.Repository",
+          "org.springframework.transaction.interceptor.TransactionalProxy",
+          "org.springframework.aop.framework.Advised",
+          "org.springframework.core.DecoratingProxy"
+        ]
+      }
+    },
+    {
+      "type": {
+        "proxy": [
+          "git.backend.catan.repository.HexagonRepository",
+          "org.springframework.data.repository.Repository",
+          "org.springframework.transaction.interceptor.TransactionalProxy",
+          "org.springframework.aop.framework.Advised",
+          "org.springframework.core.DecoratingProxy",
+          "java.io.Serializable"
+        ]
+      }
+    },
+    {
+      "type": {
+        "proxy": [
+          "git.backend.catan.repository.JugadorRepository",
+          "org.springframework.aop.SpringProxy",
+          "org.springframework.aop.framework.Advised",
+          "org.springframework.core.DecoratingProxy"
+        ]
+      }
+    },
+    {
+      "type": {
+        "proxy": [
+          "git.backend.catan.repository.JugadorRepository",
+          "org.springframework.data.repository.Repository",
+          "org.springframework.transaction.interceptor.TransactionalProxy",
+          "org.springframework.aop.framework.Advised",
+          "org.springframework.core.DecoratingProxy"
+        ]
+      }
+    },
+    {
+      "type": {
+        "proxy": [
+          "git.backend.catan.repository.JugadorRepository",
+          "org.springframework.data.repository.Repository",
+          "org.springframework.transaction.interceptor.TransactionalProxy",
+          "org.springframework.aop.framework.Advised",
+          "org.springframework.core.DecoratingProxy",
+          "java.io.Serializable"
+        ]
+      }
+    },
+    {
+      "type": {
+        "proxy": [
           "git.backend.catan.repository.PartidaRepository",
           "org.springframework.aop.SpringProxy",
           "org.springframework.aop.framework.Advised",
@@ -12831,6 +13116,72 @@
       "type": {
         "proxy": [
           "git.backend.catan.repository.PartidaRepository",
+          "org.springframework.data.repository.Repository",
+          "org.springframework.transaction.interceptor.TransactionalProxy",
+          "org.springframework.aop.framework.Advised",
+          "org.springframework.core.DecoratingProxy",
+          "java.io.Serializable"
+        ]
+      }
+    },
+    {
+      "type": {
+        "proxy": [
+          "git.backend.catan.repository.PoblatRepository",
+          "org.springframework.aop.SpringProxy",
+          "org.springframework.aop.framework.Advised",
+          "org.springframework.core.DecoratingProxy"
+        ]
+      }
+    },
+    {
+      "type": {
+        "proxy": [
+          "git.backend.catan.repository.PoblatRepository",
+          "org.springframework.data.repository.Repository",
+          "org.springframework.transaction.interceptor.TransactionalProxy",
+          "org.springframework.aop.framework.Advised",
+          "org.springframework.core.DecoratingProxy"
+        ]
+      }
+    },
+    {
+      "type": {
+        "proxy": [
+          "git.backend.catan.repository.PoblatRepository",
+          "org.springframework.data.repository.Repository",
+          "org.springframework.transaction.interceptor.TransactionalProxy",
+          "org.springframework.aop.framework.Advised",
+          "org.springframework.core.DecoratingProxy",
+          "java.io.Serializable"
+        ]
+      }
+    },
+    {
+      "type": {
+        "proxy": [
+          "git.backend.catan.repository.VertexRepository",
+          "org.springframework.aop.SpringProxy",
+          "org.springframework.aop.framework.Advised",
+          "org.springframework.core.DecoratingProxy"
+        ]
+      }
+    },
+    {
+      "type": {
+        "proxy": [
+          "git.backend.catan.repository.VertexRepository",
+          "org.springframework.data.repository.Repository",
+          "org.springframework.transaction.interceptor.TransactionalProxy",
+          "org.springframework.aop.framework.Advised",
+          "org.springframework.core.DecoratingProxy"
+        ]
+      }
+    },
+    {
+      "type": {
+        "proxy": [
+          "git.backend.catan.repository.VertexRepository",
           "org.springframework.data.repository.Repository",
           "org.springframework.transaction.interceptor.TransactionalProxy",
           "org.springframework.aop.framework.Advised",

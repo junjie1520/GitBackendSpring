@@ -12,7 +12,7 @@ import git.backend.catan.service.JugadorService;
 
 
 @RestController
-@RequestMapping(path="/api/jugador") // Prefijo de la API
+@RequestMapping(path="/jugador")
 public class JugadorController {
 
     @Autowired
