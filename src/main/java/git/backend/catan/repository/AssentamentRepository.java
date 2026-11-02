@@ -32,4 +32,12 @@ public interface AssentamentRepository extends JpaRepository<Assentament, Intege
  // El "IdIn" hace un "WHERE vertex.id IN (...)" pasándole la lista de los dos extremos
     
     long countByPropietariIdAndVertexIdIn(Integer propietariId, List<Integer> vertexIds);
+    
+    @Query("""
+			SELECT a FROM Assentament a
+			JOIN FETCH a.vertex v
+			JOIN FETCH a.propietari
+			WHERE v.partida.id = :idPartida
+			""")
+	List<Assentament> llistarPerPartida(@Param("idPartida") Integer idPartida);
 }
