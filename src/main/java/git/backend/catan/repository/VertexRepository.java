@@ -12,7 +12,6 @@ import git.backend.catan.model.Vertex;
 @Repository
 public interface VertexRepository extends JpaRepository<Vertex, Integer> {
 
-    // Pasamos tu JPQL exacto a Spring. Usamos :esPreparacio para simplificar el IF que tenías en el DAO.
     @Query("SELECT DISTINCT v FROM HexagonVertex hv JOIN hv.vertex v WHERE hv.hexagon.partida.id = :partidaId " +
            "AND v.id NOT IN (SELECT a.vertex.id FROM Assentament a) " +
            "AND v.id NOT IN (SELECT ar.vertexB.id FROM Aresta ar WHERE ar.vertexA.id IN (SELECT a1.vertex.id FROM Assentament a1)) " + 

@@ -25,10 +25,8 @@ public interface PoblatRepository extends JpaRepository<Poblat, Integer> {
             @Param("idJugador") Integer idJugador);
     
     long countByPropietariId(Integer propietariId);
- // Devuelve los poblados del jugador ordenados de más reciente a más antiguo (OrderByIdDesc)
     List<Poblat> findByPropietariIdOrderByIdDesc(Integer propietariId);
     
- // Spring fa sol la consulta per buscar un poblat concret d'un vèrtex i jugador[cite: 14]
     Optional<Poblat> findByVertexIdAndPropietariId(Integer vertexId, Integer propietariId);
     
 }

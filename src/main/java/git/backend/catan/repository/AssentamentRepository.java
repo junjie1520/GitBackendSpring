@@ -22,11 +22,9 @@ public interface AssentamentRepository extends JpaRepository<Assentament, Intege
  
     boolean existsByVertexId(Integer vertexId);
     
-    // Nivell 3: Regla de distància
     @Query("SELECT COUNT(a) FROM Assentament a WHERE a.vertex.id IN (SELECT ar.vertexB.id FROM Aresta ar WHERE ar.vertexA.id = :idV) " +
            "OR a.vertex.id IN (SELECT ar2.vertexA.id FROM Aresta ar2 WHERE ar2.vertexB.id = :idV)")
     long comptarAdjacentsOcupats(@Param("idV") Integer idVertex);
- // El "IdIn" hace un "WHERE vertex.id IN (...)" pasándole la lista de los dos extremos
     
     long countByPropietariIdAndVertexIdIn(Integer propietariId, List<Integer> vertexIds);
     

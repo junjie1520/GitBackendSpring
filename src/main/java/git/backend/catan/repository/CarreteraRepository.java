@@ -10,13 +10,10 @@ import git.backend.catan.model.Carretera;
 @Repository
 public interface CarreteraRepository extends JpaRepository<Carretera, Integer> {
 
-    // SUSTITUYE A contarOcupacion: Más rápido y sin escribir SQL (Nivel 2)
     boolean existsByArestaId(Integer idAresta);
 
-    // SUSTITUYE A contarDelJugador: Spring hace el SELECT COUNT solo (Nivel 2)
     long countByPropietariId(Integer propietariId);
 
-    // MANTENER: Nivel 3. ¿Tiene una carretera propia que toque alguno de estos vértices?
     @Query("SELECT COUNT(c) FROM Carretera c " +
            "WHERE c.propietari.id = :idJugador " +
            "AND c.aresta.id <> :idAresta " +
@@ -30,7 +27,6 @@ public interface CarreteraRepository extends JpaRepository<Carretera, Integer> {
             @Param("vA") Integer vA,
             @Param("vB") Integer vB);
 
-    // MANTENER: Nivel 3. Buscamos si el jugador tiene una carretera que toque el Vértice A o B
     @Query("SELECT COUNT(c) FROM Carretera c WHERE c.propietari.id = :jugadorId AND (c.aresta.vertexA.id = :vertexId OR c.aresta.vertexB.id = :vertexId)")
     long comptarConnectadesAVertex(
             @Param("jugadorId") Integer jugadorId, 
