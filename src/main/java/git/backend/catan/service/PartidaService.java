@@ -282,7 +282,7 @@ public class PartidaService {
 	   Partida p = partidaOpt.get();
 
 	    if(p.getEstatPartida()!=EstatPartida.EN_CURS) {
-	    	return tirarError("La partida esta en estas incompatible amb l'acció");
+	    	p.setEstatPartida(EstatPartida.EN_CURS);
 	    }
 
 	    if(p.isDausTirats()) {
