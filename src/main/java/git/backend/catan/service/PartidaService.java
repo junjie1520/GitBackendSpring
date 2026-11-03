@@ -27,6 +27,7 @@ import git.backend.catan.dto.PartidaResum;
 import git.backend.catan.model.Aresta;
 import git.backend.catan.model.Assentament;
 import git.backend.catan.model.CartaDesenvolupament;
+import git.backend.catan.model.Ciutat;
 import git.backend.catan.model.ColorJugador;
 import git.backend.catan.model.EstatPartida;
 import git.backend.catan.model.Hexagon;
@@ -267,6 +268,199 @@ public class PartidaService {
 		br.close();
 
 		return files;
+	}
+	
+	@Transactional
+	public ResponseEntity<?> tirarDaus(int idPartida) {
+
+	    Optional<Partida> partidaOpt = pRepository.findById(idPartida);
+
+	    if(!partidaOpt.isPresent()) {
+	        return tirarError("No existeix la partida amb id: " + idPartida);
+	    }
+
+	   Partida p = partidaOpt.get();
+
+	    if(p.getEstatPartida()!=EstatPartida.EN_CURS) {
+	        p.setEstatPartida(EstatPartida.EN_CURS);//Aqui debe llamar al error de que no esta en curso, es para testeo
+	    }
+
+	    if(p.isDausTirats()) {
+	        return tirarError("El jugador actiu ja ha tirat els daus aquest torn");
+	    }
+
+	    int dau1 = random.nextInt(1, 7);
+	    int dau2 = random.nextInt(1, 7);
+	    int tirada = dau1 + dau2;
+
+	    p.setUltimaTirada(tirada);
+	    p.setDausTirats(true);
+
+	    Map<String, Map<TipusRecurs, Integer>> resum = new LinkedHashMap<>();
+
+	    if(tirada == 7){
+
+	        ArrayList<Jugador> jugadors = new ArrayList<>(p.getJugadors());
+
+	        for(int i = 0; i<jugadors.size(); i++) {
+	            descartarMeitat(jugadors.get(i));
+	        }
+
+	        p.setLladrePendent(true);
+
+	    }else{
+
+	        Integer idLladre = -1;
+
+	        if(p.getLladre() != null) {
+	            idLladre = p.getLladre().getId();
+	        }
+
+	        HashMap<Integer, Assentament> assentaments = new HashMap<>();
+
+	        List<Assentament> llistaAssentaments =
+	                aRepository.llistarPerPartida(idPartida);
+
+	        for(int i = 0; i< llistaAssentaments.size(); i++){
+
+	            Assentament a = llistaAssentaments.get(i);
+
+	            assentaments.put(a.getVertex().getId(), a);
+	        }
+
+	        List<Hexagon> hexagons = hRepository.llistarTauler(idPartida);
+
+	        for (Hexagon h : hexagons) {
+
+	            if (h.getNumero()!=null&&h.getNumero() == tirada) {
+
+	                TipusRecurs recurs = recursTerreny(h.getTerreny());
+	                if (recurs != null) {
+	                    ArrayList<HexagonVertex> vertexs =
+	                            new ArrayList<>(h.getHexagonVertices());
+
+	                    for (HexagonVertex hv : vertexs) {
+
+	                        Assentament a = assentaments.get(
+	                                hv.getVertex().getId()
+	                        );
+	                        if(a!= null) {
+
+	                            int quantitat = 1;
+	                            if (a instanceof Ciutat){
+	                                quantitat = 2;
+	                            }
+
+	                            Jugador jugador = a.getJugador();
+	                            List<RecursJugador> inventari =
+	                                    jugador.getInventari();
+
+	                            for(RecursJugador rj : inventari){	                             
+	                                if(rj.getTipusRecurs() == recurs){
+	                                    rj.setQuantitat(
+	                                            rj.getQuantitat() + quantitat
+	                                    );
+	                                }
+	                            }
+
+	                            if(!resum.containsKey(jugador.getNom())){
+	                                resum.put(
+	                                        jugador.getNom(),
+	                                        new LinkedHashMap<>()
+	                                );
+	                            }
+
+	                            Map<TipusRecurs, Integer> rebut =
+	                                    resum.get(jugador.getNom());
+
+	                            if(rebut.containsKey(recurs)){
+	                                rebut.put(
+	                                        recurs,
+	                                        rebut.get(recurs) + quantitat
+	                                );
+	                            }else{
+	                                rebut.put(recurs, quantitat);
+	                            }
+	                        }
+	                    }
+	                }
+	            }
+	        }
+	    }
+
+	    Map<String, Object> resposta = new LinkedHashMap<>();
+
+	    resposta.put("tirada", tirada);
+	    resposta.put("recursosRebuts", resum);
+
+	    return ResponseEntity.ok()
+	            .header("Header-Customitzat", "Daus de la partida " + idPartida)
+	            .body(resposta);
+	}
+	
+	private void descartarMeitat(Jugador j) {
+
+	    int total = 0;
+
+	    ArrayList<RecursJugador> inventari =
+	            new ArrayList<>(j.getInventari());
+
+	    for(int i = 0; i<inventari.size(); i++) {
+	        total+=inventari.get(i).getQuantitat();
+	    }
+
+	    if(total <= 7){
+	    	return;
+	    }
+
+	    int aDescartar = total / 2;
+
+	    for(int i = 0; i<aDescartar; i++){
+	        int r = random.nextInt(total);
+
+	        for(int k = 0; k<inventari.size(); k++) {
+	            RecursJugador rj = inventari.get(k);
+
+	            if(r<rj.getQuantitat()) {
+	                rj.setQuantitat(rj.getQuantitat() - 1);
+
+	                break;
+	            }
+
+	            r-=rj.getQuantitat();
+	        }
+
+	        total--;
+	    }
+	}
+	
+	private TipusRecurs recursTerreny(TipusTerreny terreny) {
+
+	    switch (terreny){
+	        case BOSC:
+	            return TipusRecurs.FUSTA;
+
+	        case TURONS:
+	            return TipusRecurs.MAO;
+
+	        case PASTURES:
+	            return TipusRecurs.LLANA;
+
+	        case CAMPS:
+	            return TipusRecurs.BLAT;
+
+	        case MUNTANYES:
+	            return TipusRecurs.MINERAL;
+
+	        default:
+	            return null;
+	    }
+	}
+	
+	
+	private ResponseEntity<?> tirarError(String error){
+		return ResponseEntity.badRequest().header("Header-Customitzat", "Error! ")
+				.body("Error:"+error);
 	}
 
 }

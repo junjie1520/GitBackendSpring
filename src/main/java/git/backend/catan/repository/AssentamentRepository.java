@@ -19,10 +19,7 @@ public interface AssentamentRepository extends JpaRepository<Assentament, Intege
             @Param("idJugador") Integer idJugador,
             @Param("vA") Integer vA,
             @Param("vB") Integer vB);
-    @Query("SELECT COUNT(a) FROM Assentament a WHERE a.vertex.id"+
-            "IN (SELECT ar.vertexB.id FROM Aresta ar WHERE ar.vertexA.id"+
-    		" = :idV) OR a.vertex.id IN (SELECT ar2.vertexA.id FROM Aresta"+
-            " ar2 WHERE ar2.vertexB.id = :idV)")
+ 
     boolean existsByVertexId(Integer vertexId);
     
     // Nivell 3: Regla de distància

@@ -29,5 +29,8 @@ public class PartidaController {
 	public ResponseEntity<?> inicialitzarPartida(@Valid @RequestBody PartidaPeticio peticio) throws IOException {
 		return service.inicialitzarPartida(peticio);
 	}
-
+	@PostMapping(path="/{idPartida}/daus")
+	public ResponseEntity<?> tirarDaus(@PathVariable int idPartida) {
+	    return service.tirarDaus(idPartida);
+	}
 }

@@ -1,7 +1,9 @@
 package git.backend.catan.service;
 
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+import git.backend.catan.dto.JugadorResum;
 import git.backend.catan.model.Aresta;
 import git.backend.catan.model.Carretera;
 import git.backend.catan.model.Ciutat;
@@ -379,6 +382,29 @@ public class JugadorService {
         }
                 
         return ResponseEntity.ok("Poblat construït correctament");
+    }
+    
+    @Transactional
+    public ResponseEntity<?> mostrarRecursos(int idJugador) {
+        Optional<Jugador> j = jugadorRepository.findById(idJugador);
+        if (!j.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .header("Header-Customitzat", "ID " + idJugador + " NO TROBAT")
+                    .body("NO EXISTEIX CAP JUGADOR AMB ID " + idJugador);
+        }
+
+        Map<TipusRecurs, Integer> recursos = new LinkedHashMap<>();
+        for (RecursJugador r : j.get().getInventari()) {
+            recursos.put(r.getTipusRecurs(), r.getQuantitat());
+        }
+
+        Map<String, Object> resposta = new LinkedHashMap<>();
+        resposta.put("jugador", JugadorResum.de(j.get()));
+        resposta.put("recursos", recursos);
+
+        return ResponseEntity.ok()
+                .header("Header-Customitzat", "Recursos del jugador " + idJugador)
+                .body(resposta);
     }
 
     private ResponseEntity<String> millorarCiutatLogica(Jugador jugador, int idVertex) {
