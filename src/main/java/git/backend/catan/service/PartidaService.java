@@ -282,7 +282,7 @@ public class PartidaService {
 	   Partida p = partidaOpt.get();
 
 	    if(p.getEstatPartida()!=EstatPartida.EN_CURS) {
-	        p.setEstatPartida(EstatPartida.EN_CURS);//Aqui debe llamar al error de que no esta en curso, es para testeo
+	    	return tirarError("La partida esta en estas incompatible amb l'acció");
 	    }
 
 	    if(p.isDausTirats()) {
